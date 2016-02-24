@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <bottom>
+      <FlowPane alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="45.0" prefWidth="599.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" text="&lt;&lt;" />
+            <Button mnemonicParsing="false" text="&lt;" />
+            <TextField prefHeight="25.0" prefWidth="25.0" />
+            <Label text="Label" />
+            <Button mnemonicParsing="false" text="&gt;" />
+            <Button mnemonicParsing="false" text="&gt;&gt;" />
+         </children>
+      </FlowPane>
+   </bottom>
+   <center>
+      <TabPane prefHeight="389.0" prefWidth="602.0" BorderPane.alignment="CENTER">
+         <tabs>
+            <Tab closable="false" text="Libros">
+               <content>
+                  <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+                     <center>
+                        <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <ScrollPane prefViewportHeight="371.0" prefViewportWidth="600.0">
+                                 <content>
+                                    <TableView>
+                                       <columns>
+                                          <TableColumn prefWidth="113.0" text="Titulo" />
+                                          <TableColumn minWidth="0.0" prefWidth="161.0" text="Autor" />
+                                          <TableColumn minWidth="0.0" prefWidth="166.0" text="Editorial" />
+                                          <TableColumn minWidth="0.0" prefWidth="159.0" text="ISBN" />
+                                       </columns>
+                                    </TableView>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </Pane>
+                     </center>
+                     <top>
+                        <FlowPane alignment="CENTER" hgap="5.0" prefHeight="46.0" prefWidth="600.0" vgap="5.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button mnemonicParsing="false" text="Añadir" />
+                              <Button mnemonicParsing="false" text="Modificar" />
+                              <Button mnemonicParsing="false" text="Eliminar" />
+                              <TextField />
+                              <ComboBox prefWidth="150.0" />
+                              <Button mnemonicParsing="false" text="Buscar" />
+                           </children>
+                        </FlowPane>
+                     </top>
+                  </BorderPane>
+               </content>
+            </Tab>
+            <Tab closable="false" text="Autores">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <ScrollPane prefViewportHeight="318.0" prefViewportWidth="599.0">
+                           <content>
+                              <TableView prefHeight="316.0" prefWidth="596.0" BorderPane.alignment="CENTER">
+                                 <columns>
+                                    <TableColumn prefWidth="289.0" text="Codigo" />
+                                    <TableColumn minWidth="0.0" prefWidth="310.0" text="Nombre" />
+                                 </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                     </center>
+                     <top>
+                        <FlowPane alignment="CENTER" hgap="5.0" prefHeight="46.0" prefWidth="600.0" rowValignment="TOP" vgap="5.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button mnemonicParsing="false" text="Añadir" />
+                              <Button mnemonicParsing="false" text="Modificar" />
+                              <Button mnemonicParsing="false" text="Eliminar" />
+                              <TextField />
+                              <ComboBox prefWidth="150.0" />
+                              <Button mnemonicParsing="false" text="Buscar" />
+                           </children>
+                        </FlowPane>
+                     </top>
+                  </BorderPane>
+               </content>
+            </Tab>
+            <Tab closable="false" text="Editoriales">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <ScrollPane prefViewportHeight="324.0" prefViewportWidth="599.0">
+                           <content>
+                              <TableView prefHeight="323.0" prefWidth="596.0" BorderPane.alignment="CENTER">
+                                 <columns>
+                                    <TableColumn prefWidth="303.0" text="Nombre" />
+                                    <TableColumn minWidth="0.0" prefWidth="296.0" text="Codigo" />
+                                 </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                     </center>
+                     <top>
+                        <FlowPane alignment="CENTER" hgap="5.0" prefHeight="40.0" prefWidth="600.0" vgap="5.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button mnemonicParsing="false" text="Añadir" />
+                              <Button mnemonicParsing="false" text="Modificar" />
+                              <Button mnemonicParsing="false" text="Eliminar" />
+                              <TextField />
+                              <ComboBox prefWidth="150.0" />
+                              <Button mnemonicParsing="false" text="Buscar" />
+                           </children>
+                        </FlowPane>
+                     </top>
+                  </BorderPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </center>
+</BorderPane>
