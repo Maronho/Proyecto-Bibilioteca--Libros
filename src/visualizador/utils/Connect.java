@@ -31,25 +31,74 @@ public class Connect {
 			e.printStackTrace();
 		}		
 	}
-}
-	/*public String[] AprobadosSuspensos (String CodAsig) throws SQLException{
-		String []Salida = {"",""};
-		
-		PreparedStatement getAprobados = con.prepareStatement("Select COUNT(codAlumno) from notas where nota > 4 AND codAsignatura LIKE ?");
-		getAprobados.setString(1, CodAsig);
-		
-		PreparedStatement getSuspensos = con.prepareStatement("Select COUNT(codAlumno) from notas where nota < 5 AND codAsignatura LIKE ?");
-		getSuspensos.setString(1, CodAsig);
-		
-		ResultSet res  = getAprobados.executeQuery();
-		ResultSet resS = getSuspensos.executeQuery();
-		while (res.next()){
-			Salida[0]=res.getString(1);
-		}
-		while (resS.next()){
-			Salida[1]= resS.getString(1);
-		}
-				
-		return Salida;*/
 	
+	public String[][] getLibros() throws SQLException{		
+		String[][]rows;
+		String ISBN,Titulo,Autor,editorial,rawRow;
+		
+		PreparedStatement getNumFilas = con.prepareStatement("select count(cod_libro) from autor_libro");
+		ResultSet numfilasAux = getNumFilas.executeQuery();
+		numfilasAux.next();
+		
+		int numFilas = Integer.valueOf(numfilasAux.getString(1));
+		rows = new String[numFilas][4];
+		
+		
+		PreparedStatement getLibrosSQL = con.prepareStatement(
+				"select cod_libro, autor.nombre, libro.Titulo, editorial.nombre "
+				+ "from autor_libro "
+				+ "inner join autor "
+					+ "on autor_libro.cod_autor = autor.cod_autor "
+				+ "inner join libro "
+					+ "on autor_libro.cod_libro = libro.ISBN "
+				+ "inner join editorial "
+					+ "on libro.Cod_editorial = editorial.Cod_editorial");
+		
+		ResultSet salidaLibros = getLibrosSQL.executeQuery();
+		
+		int i=0;		
+		while (salidaLibros.next()){
+			
+			ISBN = salidaLibros.getString(1);
+			Autor = salidaLibros.getString(2);
+			Titulo = salidaLibros.getString(3);
+			editorial = salidaLibros.getString(4);
+			
+			rows[i][0]=ISBN;
+			rows[i][1]=Autor;
+			rows[i][2]=Titulo;
+			rows[i][3]=editorial;
+			i++;
+		}
+		return rows;
+	}
+	
+	public String[][] getAutores() throws SQLException{
+		String[][] arrayAutores;
+		int nAutores;
+		ResultSet res ;
+			
+			PreparedStatement getNautores = con.prepareStatement("Select count(cod_autor) from autor");
+			res = getNautores.executeQuery();
+			
+			res.next();
+			nAutores = Integer.valueOf(res.getString(1));
+			
+			PreparedStatement getTablaAutores = con.prepareStatement("SELECT cod_autor, nombre FROM autor");
+			
+			res= getTablaAutores.executeQuery();
+			
+			arrayAutores= new String[nAutores][2];
+			
+			for (int i = 0; i < nAutores; i++) {
+				arrayAutores[i][0]=res.getString(1);
+				arrayAutores[i][1]=res.getString(2);
+			}
+			
+		
+		return arrayAutores;
+	}
+	
+}
+
 

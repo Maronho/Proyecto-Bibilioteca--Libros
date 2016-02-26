@@ -1,4 +1,4 @@
-package visualizador.controlador;
+package visualizador.ui;
 
 import java.io.IOException;
 
@@ -26,11 +26,22 @@ public class MainApp extends Application {
 			
 			FXMLLoader loader = new FXMLLoader(
 								getClass().getResource(
-														"/visualizador/vista/Interfaz.fxml"
+														"/visualizador/ui/Interfaz.fxml"
 													   ));
+			System.out.println("Cargando archivo FXML");
+			
+			System.out.println(loader.toString());
+			
+			
 			rootLayout = (BorderPane)loader.load();
+			
+			System.out.println("Avanzando ...");
 			Scene scene = new Scene(rootLayout);
+			
+			System.out.println("Avanzando ...");
+			
 			primaryStage.setScene(scene);
+			
 			primaryStage.show();
 			
 		} catch (IOException e) {
