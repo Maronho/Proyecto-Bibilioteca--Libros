@@ -77,7 +77,8 @@ public class Connect {
 		String[][] arrayAutores;
 		int nAutores;
 		ResultSet res ;
-			
+		
+		try {
 			PreparedStatement getNautores = con.prepareStatement("Select count(cod_autor) from autor");
 			res = getNautores.executeQuery();
 			
@@ -90,15 +91,50 @@ public class Connect {
 			
 			arrayAutores= new String[nAutores][2];
 			
+			System.out.println(arrayAutores.length+ "-"+arrayAutores[0].length);
+			
+			res.next();
 			for (int i = 0; i < nAutores; i++) {
 				arrayAutores[i][0]=res.getString(1);
 				arrayAutores[i][1]=res.getString(2);
+				res.next();
 			}
+			return arrayAutores;
+			
+		} catch (SQLException e) {
+			System.out.println("Error recuperando autores");
+			return null;
+		}
+		
 			
 		
-		return arrayAutores;
+		
 	}
 	
+	public String[][] getEditoriales() throws SQLException{
+		String [][] arrayEditoriales;
+		int nEditoriales;
+		ResultSet res;
+		PreparedStatement pres;
+		
+		pres = con.prepareStatement("select count(Nombre) from editorial");
+		res = pres.executeQuery();
+		res.next();
+		nEditoriales = Integer.valueOf(res.getString(1));
+		
+		pres = con.prepareStatement("Select * from editorial ");
+		res = pres.executeQuery();
+		
+		arrayEditoriales= new String[nEditoriales][2];
+		
+		res.next();
+		for (int i = 0; i < nEditoriales; i++) {
+			arrayEditoriales[i][0]=res.getString(1);
+			arrayEditoriales[i][1]=res.getString(2);
+		}
+		
+		return arrayEditoriales;
+	}
 }
 
 

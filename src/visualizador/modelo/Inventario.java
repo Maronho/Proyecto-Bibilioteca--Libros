@@ -26,21 +26,35 @@ public class Inventario {
 		
 		actualizaLibros();
 		actualizaAutores();
+		actualizaEditoriales();
 		
 		imprimirLibros();
 		
 		
 	}
 
+
+	private void actualizaEditoriales() {
+		try {
+			String[][] editorialesRecogidas = con.getEditoriales();
+			editoriales= new Editorial[editorialesRecogidas.length];
+			
+			for (int i = 0; i < editorialesRecogidas.length; i++){				
+				editoriales[i]= new Editorial(editorialesRecogidas[i][0], editorialesRecogidas[i][1]);
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+
 	private void actualizaAutores() {
-		System.out.println("EH!");
 		try{
 			String[][] tablaAutores = con.getAutores();
 			for (int i = 0; i < tablaAutores.length; i++) {
 				for (int j = 0; j < tablaAutores[0].length; j++) {
-					System.out.print(tablaAutores[i][j]+"|");
 				}
-				System.out.println("->");
+
 			}
 		}
 		catch(SQLException e){

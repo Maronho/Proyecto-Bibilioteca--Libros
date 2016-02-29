@@ -28,12 +28,12 @@
                            <children>
                               <ScrollPane prefViewportHeight="371.0" prefViewportWidth="600.0">
                                  <content>
-                                    <TableView>
+                                    <TableView fx:id="tablaLibros">
                                        <columns>
-                                          <TableColumn prefWidth="113.0" text="Titulo" />
-                                          <TableColumn minWidth="0.0" prefWidth="161.0" text="Autor" />
-                                          <TableColumn minWidth="0.0" prefWidth="166.0" text="Editorial" />
-                                          <TableColumn minWidth="0.0" prefWidth="159.0" text="ISBN" />
+                                          <TableColumn fx:id="colTituloLibro" prefWidth="113.0" text="Titulo" />
+                                          <TableColumn fx:id="colListaAutores" minWidth="0.0" prefWidth="161.0" text="Autor" />
+                                          <TableColumn fx:id="colEditorialLibro" minWidth="0.0" prefWidth="166.0" text="Editorial" />
+                                          <TableColumn fx:id="colCodLibro" minWidth="0.0" prefWidth="159.0" text="ISBN" />
                                        </columns>
                                     </TableView>
                                  </content>

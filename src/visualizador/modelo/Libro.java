@@ -18,8 +18,14 @@ public class Libro {
 		
 	}
 
-	public String[] getAutores() {
-		return autores;
+	public String getAutores() {
+		StringBuffer salida = new StringBuffer("");
+		
+		for (int i = 0; i < autores.length; i++) {
+			salida.append(autores[i]);
+		}
+		
+		return salida.toString();
 	}
 
 	public void setAutores(String[] autores) {
